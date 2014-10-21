@@ -1,0 +1,24 @@
+{
+  "name": "olivegarden-fe",
+  "version": "0.0.0",
+  "description": "front-end =========",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify app/app.js public/bundle.js -open -live",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify -t brfs app/app.js -o public/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olive-garden/front-end.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olive-garden/front-end/issues"
+  },
+  "homepage": "https://github.com/olive-garden/front-end",
+  "devDependencies": {
+    "watchify": "^2.0.0"
+  }
+}
