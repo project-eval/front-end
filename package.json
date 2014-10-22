@@ -1,24 +1,41 @@
 {
-  "name": "olivegarden-fe",
-  "version": "0.0.0",
-  "description": "front-end =========",
-  "main": "index.js",
+  "name": "olive-garden",
+  "version": "0.0.1",
+  "description": "Front-end for Olive Garden",
   "scripts": {
-    "build": "browserify app/app.js public/bundle.js -open -live",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify -t brfs app/app.js -o public/bundle.js"
+    "test": "gulp testem"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/olive-garden/front-end.git"
+    "url": "https://github.com/olive-garden/front-end"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Harry Hedger, Olivier Palta",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/olive-garden/front-end/issues"
   },
-  "homepage": "https://github.com/olive-garden/front-end",
+  "homepage": "https://github.com/olive-garden/",
   "devDependencies": {
-    "watchify": "^2.0.0"
+    "connect-history-api-fallback": "0.0.5",
+    "event-stream": "^3.1.7",
+    "gulp": "^3.8.8",
+    "gulp-angular-templatecache": "^1.3.0",
+    "gulp-concat": "^2.3.4",
+    "gulp-connect": "^2.0.6",
+    "gulp-if": "^1.2.4",
+    "gulp-jshint": "^1.8.5",
+    "gulp-load-plugins": "^0.7.0",
+    "gulp-minify-css": "^0.3.8",
+    "gulp-minify-html": "^0.1.4",
+    "gulp-ng-annotate": "^0.3.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-sass": "^0.7.3",
+    "gulp-sourcemaps": "^1.2.4",
+    "gulp-testem": "0.0.1",
+    "gulp-uglify": "^1.0.1",
+    "gulp-util": "^3.0.1",
+    "jshint-stylish": "^1.0.0",
+    "proxy-middleware": "^0.6.0"
   }
 }
