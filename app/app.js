@@ -1,11 +1,8 @@
-angular.module('myapp', ['ngRoute', 'ui.codemirror'])
+angular.module('olivegardenApp', ['ngRoute', 'ui.codemirror'])
   .config(function($routeProvider) {
     $routeProvider
     .when('/', {
       controller: 'ChallengeController',
-      templateUrl: '../app/views/challenge.html'
+      templateUrl: '../app/views/dashboard.html'
     });
 });
-//   .controller('ChallengeController', function($scope) {
-//   $scope.title = 'Challenge Page';
-// });

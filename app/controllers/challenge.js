@@ -1,4 +1,4 @@
-angular.module('myapp')
+angular.module('olivegardenApp')
 .controller('ChallengeController', function($scope) {
   $scope.title = 'Challenge Page';
 
