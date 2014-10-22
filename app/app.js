@@ -1,4 +1,4 @@
-angular.module('olivegardenApp', ['ngRoute', 'ui.codemirror'])
+angular.module('olivegardenApp', ['ngCookies', 'ui-router', 'ui.codemirror'])
   .config(function($routeProvider) {
     $routeProvider
     .when('/', {
