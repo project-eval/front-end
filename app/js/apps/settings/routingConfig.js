@@ -29,7 +29,7 @@
 			'admin'  : ['admin']
 		}
 
-	}
+	};
 
 	exports.userRoles = buildRoles(config.roles);
 	exports.accessLevels = buildAccessLevels(config.accessLevels, exports.userRoles);
@@ -65,31 +65,34 @@
 	function buildAccessLevels(accessLevelDeclarations, userRoles){
 
 		var accessLevels = {};
+		var role;
+		var resultBitMask;
+
 		for(var level in accessLevelDeclarations){
 
 			if(typeof accessLevelDeclarations[level] == 'string'){
 				if(accessLevelDeclarations[level] == '*'){
 
-					var resultBitMask = '';
+					resultBitMask = '';
 
-					for( var role in userRoles){
-						resultBitMask += "1"
+					for(role in userRoles){
+						resultBitMask += '1';
 					}
 					//accessLevels[level] = parseInt(resultBitMask, 2);
 					accessLevels[level] = {
 						bitMask: parseInt(resultBitMask, 2)
 					};
 				}
-				else console.log("Access Control Error: Could not parse '" + accessLevelDeclarations[level] + "' as access definition for level '" + level + "'")
+				else console.log("Access Control Error: Could not parse '" + accessLevelDeclarations[level] + "' as access definition for level '" + level + "'");
 
 			}
 			else {
 
-				var resultBitMask = 0;
-				for(var role in accessLevelDeclarations[level]){
+				resultBitMask = 0;
+				for(role in accessLevelDeclarations[level]){
 					if(userRoles.hasOwnProperty(accessLevelDeclarations[level][role]))
-						resultBitMask = resultBitMask | userRoles[accessLevelDeclarations[level][role]].bitMask
-					else console.log("Access Control Error: Could not find role '" + accessLevelDeclarations[level][role] + "' in registered roles while building access for '" + level + "'")
+						resultBitMask = resultBitMask | userRoles[accessLevelDeclarations[level][role]].bitMask;
+					else console.log("Access Control Error: Could not find role '" + accessLevelDeclarations[level][role] + "' in registered roles while building access for '" + level + "'");
 				}
 				accessLevels[level] = {
 					bitMask: resultBitMask
@@ -100,4 +103,4 @@
 		return accessLevels;
 	}
 
-})(typeof exports === 'undefined' ? this['routingConfig'] = {} : exports);
+})(typeof exports === 'undefined' ? this.routingConfig = {} : exports);
