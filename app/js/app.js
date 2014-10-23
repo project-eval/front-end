@@ -3,6 +3,7 @@
 var angular = require('angular');
 
 // angular modules
+require('angular-cookies');
 require('angular-ui-router');
 require('./templates');
 require('./controllers/_index');
@@ -13,6 +14,7 @@ require('./directives/_index');
 angular.element(document).ready(function() {
 
   var requires = [
+    'ngCookies',
     'ui.router',
     'templates',
     'app.controllers',
@@ -27,7 +29,7 @@ angular.element(document).ready(function() {
 
   angular.module('app').config(require('./routes'));
 
-  angular.module('app').run(require('./on_run'));
+  angular.module('app').run(require('./onRun'));
 
   angular.bootstrap(document, ['app']);
 

@@ -1,6 +1,6 @@
 'use strict';
 
-var routingConfig = require('./routingConfig.js')
+var routingConfig = require('./routingConfig.js');
 
 /**
  * @ngInject
@@ -9,7 +9,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
 
   $locationProvider.html5Mode(true);
 
-  var access = routingConfig.accessLevels
+  var access = routingConfig.accessLevels;
 
   // Public routes
   $stateProvider
@@ -35,6 +35,9 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
     .state('anon', {
       abstract: true,
       template: "<ui-view/>",
+      data: {
+        access: access.anon
+      }
     })
     .state('anon.login', {
       url: '/login/',
@@ -46,7 +49,10 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
   $stateProvider
     .state('user', {
       abstract: true,
-      template: "<ui-view/>"
+      template: "<ui-view/>",
+      data: {
+        access: access.user
+      }
     })
     .state('user.dashboard', {
       url: '/',
@@ -117,27 +123,5 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
             };
         });
 };
-// .run(['$rootScope', '$state', 'Auth', function($rootScope, $state, Auth) {
-
-//         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
-
-//             if (!('data' in toState) || !('access' in toState.data)) {
-//                 $rootScope.error = "Access undefined for this state";
-//                 event.preventDefault();
-//             } else if (!Auth.authorize(toState.data.access)) {
-//                 $rootScope.error = "Seems like you tried accessing a route you don't have access to...";
-//                 event.preventDefault();
-
-//                 if (fromState.url === '^') {
-//                     if (Auth.isLoggedIn()) {
-//                         $state.go('user.home');
-//                     } else {
-//                         $rootScope.error = null;
-//                         $state.go('anon.login');
-//                     }
-//                 }
-//             }
-//         });
-//     }]);
 
 module.exports = Routes;
