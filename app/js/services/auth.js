@@ -38,16 +38,16 @@ function Auth($http, $cookieStore) {
     },
     register: function(user) {
       return $http.post(apiUrl + '/register', user).then(function(res) {
-        changeUser(res);
-        return res;
+        changeUser(res.data.success);
+        return res.data.success;
       }, function(err) {
         return err;
       });
     },
     login: function(user) {
-      return $http.post(apiUrl + '/login', user).then(function(user) {
-        changeUser(user);
-        return user;
+      return $http.post(apiUrl + '/login', user).then(function(res) {
+        changeUser(res.data.success);
+        return res.data.success;
       }, function(err) {
       	return err;
       });
