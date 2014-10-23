@@ -1,4 +1,8 @@
 angular.module('olivegardenApp', ['ngCookies', 'ui.router', 'ui.codemirror'])
+
+    /**
+     * @config
+     */
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
         // Public routes
