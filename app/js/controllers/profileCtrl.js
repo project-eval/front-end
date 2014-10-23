@@ -6,11 +6,13 @@ function ProfileCtrl($scope, $stateParams, Users) {
 
 	$scope.userInfo = {}
 
-	Users.getUser($stateParams.username, function(userInfo) {
-		$scope.userInfo = userInfo
-	}, function (err) {
-		console.log(err)
-	})
+	Users.getUser($stateParams.username)
+		.success(function(userInfo) {
+			$scope.userInfo = userInfo
+		})
+		.error(function(err) {
+			console.log(err)
+		})
 
 };
 
