@@ -6,7 +6,6 @@
 function onRun($rootScope, AppSettings, Auth, $state) {
 
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
-
     if ( !( 'data' in toState ) || !( 'access' in toState.data )) {
       $rootScope.error = "Access undefined for this state";
       event.preventDefault();
@@ -16,7 +15,7 @@ function onRun($rootScope, AppSettings, Auth, $state) {
 
       if (fromState.url === '^') {
         if (Auth.isLoggedIn()) {
-          $state.go('user.home');
+          $state.go('user.dashboard');
         } else {
           $rootScope.error = null;
           $state.go('anon.login');

@@ -38,11 +38,9 @@ function Auth($http, $cookieStore) {
     },
     register: function(user) {
       return $http.post(apiUrl + '/register', user).then(function(res) {
-      	console.log(res);
         changeUser(res);
         return res;
       }, function(err) {
-      	console.log(err);
         return err;
       });
     },

@@ -2,11 +2,10 @@
 
 var controllersModule = require('./_index');
 
-function LoginCtrl($location, $rootScope, $scope, $stateParams, Auth) {
+function LoginCtrl($rootScope, $scope, $state, $stateParams, Auth) {
 
     $scope.login = function(user) {
         Auth.login(user).then(redirectUser, showError);
-
     };
 
     $scope.register = function(user) {
@@ -14,11 +13,12 @@ function LoginCtrl($location, $rootScope, $scope, $stateParams, Auth) {
     };
 
     function redirectUser() {
-        $location.path('/');
+        $state.go('user.dashboard');
     }
 
     function showError(err) {
         $rootScope.error = 'Failed to login: ' + err;
+        $state.go('anon.login');
     }
 }
 
