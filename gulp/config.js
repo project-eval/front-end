@@ -5,7 +5,7 @@ module.exports = {
   'serverport': 3000,
 
   'styles': {
-    'src' : 'app/styles/**/*.scss',
+    'src' : 'app/scss/**/*.scss',
     'dest': 'build/css'
   },
 
@@ -32,7 +32,7 @@ module.exports = {
   },
 
   'browserify': {
-    'entries'   : ['./app/js/main.js'],
+    'entries'   : ['./app/js/app.js'],
     'bundleName': 'main.js'
   }
 
