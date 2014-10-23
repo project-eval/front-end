@@ -1,0 +1,13 @@
+
+<h1>{{title}}</h1>
+
+<section>
+    <div ui-codemirror="{
+		lineNumbers: true,
+		theme: 'twilight',
+		lineWrapping : true,
+		mode: 'xml'
+	}" ng-model="sourceCode"></div>
+</section>
+
+<button ng-click="submitSolution()">This is a button</button>
