@@ -13,7 +13,7 @@ angular.module('olivegardenApp')
 		 * @param  {function} error
 		 */
 		getUser: function(username, success, error) {
-			$http.get('/users/' + username).success(success).error(error);
+			$http.get('http://0.0.0.0:9000/api/user/' + username).success(success).error(error);
 		}
 
 	};

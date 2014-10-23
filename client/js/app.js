@@ -16,6 +16,11 @@ angular.module('olivegardenApp', ['ngCookies', 'ui.router', 'ui.codemirror'])
         access: access.public
       }
     })
+    .state('public.user', {
+      url: '/user/:username',
+      template: '<h1>username: {{userInfo.username}}</h1><h1>points: {{userInfo.points}}</h1>',
+      controller: 'ProfileCtrl'
+    })
     .state('public.404', {
       url: '/404/',
       templateUrl: 'js/common/templates/404.tpl.html'
