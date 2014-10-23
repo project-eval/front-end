@@ -14,10 +14,10 @@ var paths = {
   appStyles:        'app/scss/**/*.scss',
   appImages:        'app/images/**/*',
   indexHtml:        'app/index.html',
-  vendorJavascript: ['vendor/js/angular.js', 'vendor/js/**/*.js'],
+  vendorJavascript: ['vendor/js/angular.js', 'vendor/js/jquery-1.11.1.js','vendor/js/codemirror/lib/codemirror.js', 'vendor/js/**/*.js'],
   vendorCss:        ['vendor/css/**/*.css'],
   specFolder:       ['spec/**/*_spec.js'],
-  tmpFolder:        'tmp',
+  tmpFolder:        'client',
   tmpJavascript:    'tmp/js',
   tmpAppJs:         'tmp/js/app.js',
   tmpCss:           'tmp/css',
@@ -90,20 +90,11 @@ gulp.task('watch', ['webserver'], function() {
   gulp.watch(paths.vendorCss, ['styles']);
 });
 
-gulp.task('webserver', ['scripts', 'styles', 'images', 'indexHtml'], function() {
+gulp.task('webserver', function() {
   plugins.connect.server({
     root: paths.tmpFolder,
     port: 5000,
-    livereload: true,
-    middleware: function(connect, o) {
-        return [ (function() {
-            var url = require('url');
-            var proxy = require('proxy-middleware');
-            var options = url.parse('http://localhost:8080/api');
-            options.route = '/api';
-            return proxy(options);
-        })(), historyApiFallback ];
-    }
+    livereload: true
   });
 });
 
