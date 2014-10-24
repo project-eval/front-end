@@ -16,6 +16,7 @@ angular.element(document).ready(function() {
   var requires = [
     'ngCookies',
     'ui.router',
+    'ui.ace',
     'templates',
     'app.controllers',
     'app.services',
