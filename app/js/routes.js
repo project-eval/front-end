@@ -22,7 +22,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
     })
     .state('public.user', {
       url: '/user/:username',
-      template: '<h1>username: {{userInfo.username}}</h1><h1>points: {{userInfo.points}}</h1>',
+      templateUrl: 'profile.tpl.html',
       controller: 'ProfileCtrl'
     })
     .state('public.404', {

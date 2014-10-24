@@ -1,0 +1,15 @@
+
+<h1>username: {{userInfo.username}}</h1>
+<h2>account created on: {{userInfo.createdOn}}</h2>
+<h1>points: {{userInfo.points}}</h1>
+
+<ul>breadsticks:
+		<br>
+		<li ng-repeat="breadstick in userInfo.breadsticks">
+				<span>id: {{breadstick.id}}</span>
+				<br>
+				<span>completed: {{breadstick.hasCompleted}}</span>
+				<br>
+				<br>
+		</li>
+</ul>
