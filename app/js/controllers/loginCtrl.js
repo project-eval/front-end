@@ -4,6 +4,8 @@ var controllersModule = require('./_index');
 
 function LoginCtrl($rootScope, $scope, $state, $stateParams, Auth) {
 
+    $scope.error = '';
+
     $scope.login = function(user) {
         Auth.login(user).then(redirectUser, showError);
     };
@@ -12,8 +14,9 @@ function LoginCtrl($rootScope, $scope, $state, $stateParams, Auth) {
         Auth.register(user).then(redirectUser, showError);
     };
 
-    function redirectUser() {
-        $state.go('user.dashboard');
+    function redirectUser(res) {
+        if(res.error) $scope.error = res.error;
+        else $state.go('user.dashboard');
     }
 
     function showError(err) {
