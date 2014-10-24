@@ -61,7 +61,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
     .state('user.create', {
       url: '/create/',
       templateUrl: 'create.tpl.html',
-      controller: 'CreateCtrl'
+      controller: 'CreateCtrl as create'
     })
     .state('user.challenge', {
       url: '/challenge/',

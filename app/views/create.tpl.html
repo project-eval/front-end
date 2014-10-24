@@ -1,0 +1,28 @@
+<div>
+	language:
+	<input type="text" ng-model=create.data.language>
+	<br>
+	<br>difficulty:
+	<input type="text" ng-model=create.data.difficulty>
+	<br>
+	<br>title:
+	<input type="text" ng-model=create.data.title>
+	<br>
+	<br>
+</div>
+
+<div>
+	<div ui-ace ng-model=create.data.source></div>
+</div>
+
+<button ng-click="create.submit(create.data)">submit</button>
+
+<div>
+	{{create.data}}
+</div>
+
+<style>
+.ace_editor {
+	height: 200px;
+}
+</style>

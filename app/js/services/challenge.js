@@ -5,54 +5,48 @@ var servicesModule = require('./_index.js');
 /**
  * @factory
  */
-function Challenges($http) {
+function Challenges($http, AppSettings) {
+
+	var apiUrl = AppSettings.apiUrl
+
 	return {
 
 		/**
 		 * get all data about a breadstick
 		 * 
-		 * @param  {string} username
-		 * @param  {function} success
-		 * @param  {function} error
+		 * @param  {string} id
 		 */
-		getById: function(username, success, error){
-			$http({
+		getById: function(id){
+			return $http({
 				method: 'GET',
-				url: '/users/' + username,
+				url: apiUrl + '/breadsticks/' + id,
 			})
-			.success(success).error(error);
 		},
 
 		/**
 		 * get list of breadsticks
 		 * 
 		 * @param  {Hash} params
-		 * @param  {function} success
-		 * @param  {function} error
 		 */
-		query: function(params, success, error){
-			$http({
+		query: function(params){
+			return $http({
 				method: 'GET',
-				url: '/breadsticks',
+				url: apiUrl + '/breadsticks',
 				params: params
 			})
-			.success(success).error(error);
 		},
 
 		/**
 		 * submit a new breadstick
 		 * 
 		 * @param  {Hash} data
-		 * @param  {function} success
-		 * @param  {function} error
 		 */
-		submit: function(data, success, error){
-			$http({
+		submit: function(data){
+			return $http({
 				method: 'POST',
-				url: '/breadsticks',
+				url: apiUrl + '/breadsticks',
 				data: data
 			})
-			.success(success).error(error);
 		}
 	};
 };
