@@ -72,7 +72,12 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
 			url: '/challenge/',
 			templateUrl: 'challenge.tpl.html',
 			controller: 'ChallengeCtrl'
-		});
+		})
+		.state('user.breadstick', {
+			url: '/breadsticks/:id',
+			templateUrl: 'breadstick.tpl.html',
+			controller: 'BreadstickCtrl as breadstick'
+		})
 
 	// Admin routes
 	$stateProvider

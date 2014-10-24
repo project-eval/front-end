@@ -12,6 +12,10 @@ function BreadsticksCtrl(Challenges) {
 
 	this.data = [];
 
+	this.onClick = function (breadstick) {
+		console.log(breadstick);
+	}
+
 	Challenges.query().then(onSuccess, onError);
 
 	function onSuccess (res) {

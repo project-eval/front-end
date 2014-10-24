@@ -10,3 +10,4 @@ require('./profileCtrl.js');
 require('./loginCtrl.js');
 require('./createCtrl.js');
 require('./breadsticksCtrl.js');
+require('./breadstickCtrl.js');
