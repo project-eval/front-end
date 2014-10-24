@@ -12,7 +12,7 @@ function ChallengeCtrl($scope) {
 	$scope.sourceCode = '//This is where starter code will go';
 
 	$scope.submitSolution = function() {
-		console.log($scope.testModel);
+		
 	};
 
 };
