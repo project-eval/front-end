@@ -1,6 +1,28 @@
 
 <div>
-	<div ng-repeat="breadstick in breadsticks.data">
-		{{breadstick}}
+	<h2 class="sub-header">breadsticks:</h2>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>id#</th>
+					<th>language</th>
+					<th>title</th>
+					<th>author</th>
+					<th>difficulty</th>
+					<th>createdOn</th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr ng-repeat="breadstick in breadsticks.data">
+						<td> {{breadstick._id}} </td>
+						<td> {{breadstick.language}} </td>
+						<td> {{breadstick.title}} </td>
+						<td> {{breadstick.author}} </td>
+						<td> {{breadstick.difficulty}} </td>
+						<td> {{breadstick.createdOn}} </td>
+					</tr>
+			</tbody>
+		</table>
 	</div>
 </div>
