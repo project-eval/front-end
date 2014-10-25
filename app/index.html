@@ -47,9 +47,10 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-sm-2 col-md-1 sidebar">
-          <ul class="nav nav-sidebar">
-            <li><a href="/login/">Login</a>
+        <div class="col-sm-2 col-md-2 col-lg-1 col-lg-push-1 sidebar">
+          <ul class="nav nav-sidebar" ng-controller="NavCtrl">
+            <li><a href="/login/" ng-show="!isLoggedIn()">Login</a>
+                <a href="#" ng-show="isLoggedIn()" ng-click="logout()">Logout</a>
             </li>
             <li><a href="/challenge/">Challenge</a>
             </li>
@@ -69,7 +70,7 @@
         </div>
 
         <!-- Angular Content -->
-        <div ui-view class="col-sm-offset-2 col-md-offset-1"></div>
+        <div ui-view class=""></div>
 
       </div>
     </div>
