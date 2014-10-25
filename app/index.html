@@ -15,7 +15,8 @@
   </head>
 
   <body cz-shortcut-listen="true">
-
+    
+    <!-- top nav bar -->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -44,33 +45,42 @@
         </div>
       </div>
     </div>
-
+    
+    <!-- sidebar -->
     <div class="container">
       <div class="row">
-        <div class="col-sm-2 col-md-2 col-lg-1 col-lg-push-1 sidebar">
+        <div class="col-sm-2 col-md-2 col-lg-1 sidebar">
           <ul class="nav nav-sidebar" ng-controller="NavCtrl">
-            <li><a href="/login/" ng-show="!isLoggedIn()">Login</a>
-                <a href="#" ng-show="isLoggedIn()" ng-click="logout()">Logout</a>
+            <li>
+              <a href="/login/" ng-show="!isLoggedIn()">Login</a>
+              <a href="#" ng-show="isLoggedIn()" ng-click="logout()">Logout</a>
             </li>
-            <li><a href="/challenge/">Challenge</a>
+            <li>
+              <a href="/challenge/">Challenge</a>
             </li>
-            <li><a href="/admin/">Admin</a>
+            <li>
+              <a href="/admin/">Admin</a>
             </li>
-            <li><a href="/404/">404</a>
+            <li>
+              <a href="/404/">404</a>
             </li>
-            <li><a href="/user/test1234">Profile</a>
+            <li>
+              <a href="/user/test1234">Profile</a>
             </li>
-            <li><a href="/create/">Create</a>
+            <li>
+              <a href="/create/">Create</a>
             </li>
-            <li><a href="/breadsticks/">Breadsticks</a>
+            <li>
+              <a href="/breadsticks/">Breadsticks</a>
             </li>
-            <li><a href="/breadsticks/544a256f702c1e0c5d03b292">Breadstick</a>
+            <li>
+              <a href="/breadsticks/544a256f702c1e0c5d03b292">Breadstick</a>
             </li>
           </ul>
         </div>
 
         <!-- Angular Content -->
-        <div ui-view class=""></div>
+        <div ui-view class="col-sm-10 col-md-10 col-lg-11 col-lg-offset-1 col-md-offset-2 col-sm-offset-2"></div>
 
       </div>
     </div>
