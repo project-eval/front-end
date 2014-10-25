@@ -7,13 +7,13 @@ var controllersModule = require('./_index');
  * @controller
  * @todo query filters
  */
-function BreadsticksCtrl(Challenges) {
+function BreadsticksCtrl(Challenges, $state) {
 	var self = this;
 
 	this.data = [];
 
 	this.onClick = function (breadstick) {
-		console.log(breadstick);
+		$state.go('user.breadstick', {id: breadstick._id});
 	}
 
 	Challenges.query().then(onSuccess, onError);

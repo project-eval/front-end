@@ -19,7 +19,7 @@ function Challenges($http, AppSettings) {
 		getById: function(id){
 			return $http({
 				method: 'GET',
-				url: apiUrl + '/breadsticks/' + id,
+				url: apiUrl + '/breadstick/' + id,
 			})
 		},
 
@@ -46,6 +46,19 @@ function Challenges($http, AppSettings) {
 				method: 'POST',
 				url: apiUrl + '/breadsticks',
 				data: data
+			})
+		},
+
+		/**
+		 * eval code
+		 *
+		 * @param  {Hash} data
+		 */
+		eval: function(data){
+			return $http({
+				method: 'POST',
+				url: apiUrl + '/breadstick/' + data.id,
+				data: data.src
 			})
 		}
 	};
