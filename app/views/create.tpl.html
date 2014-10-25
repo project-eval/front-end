@@ -13,22 +13,31 @@
 		</div>
 		<br>
 		<div class="input-group">
-			<span class="input-group-addon">title</span>
-			<input type="text" class="form-control" ng-model="create.data.title">
+			<span class="input-group-addon">name</span>
+			<input type="text" class="form-control" ng-model="create.data.name">
 		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon">tags</span>
+			<input type="text" class="form-control" ng-model="create.data.tags">
+		</div>
+
 		<hr>
 	</div>
 
 	<!-- each button represents a challenge within a breadstick -->
-	<div class="btn-group" ng-repeat="challenge in create.data.challenges">
-    <label  class="btn btn-success" ng-model="create.radioModel" btn-radio="{{$index}}" uncheckable>{{$index + 1}}</label>
-  </div>
+	<div class="btn-group" >
+		<label  ng-repeat="challenge in create.data.challenges" class="btn btn-success" ng-model="create.radioModel" btn-radio="{{$index}}">
+			{{$index + 1}}
+		</label>
+	</div>
 
-  <button class="btn btn-default" ng-click="create.addChallenge()">+</button>
-  <button class="btn btn-default" ng-click="create.submit(create.data)">save</button>
+	<button class="btn btn-default" ng-click="create.addChallenge()">+</button>
+	<button class="btn btn-default" ng-click="create.submit(create.data)">save</button>
 
-  <br><br>
-
+	<br><br>
+	
+	<!-- markdown tabs -->
 	<div class="panel panel-default code-box">
 		<tabset justified="true">
 			<tab heading="markup">
@@ -44,8 +53,9 @@
 		</tabset>
 	</div>
 
-	<br><br>
+	<br>
 
+	<!-- test tabs -->
 	<div class="panel panel-default code-box">
 		<tabset justified="true">
 			<tab heading="tests">

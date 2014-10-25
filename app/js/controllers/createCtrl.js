@@ -16,8 +16,9 @@ function CreateCtrl(Challenges, AppSettings) {
 
 	this.data = {
 		language: 'javascript',
-		difficulty: '42',
-		title: 'my breadstick',
+		difficulty: '2',
+		name: 'my breadstick',
+		tags: 'algo, strings, more, tags',
 		challenges: [new Challenge(1), new Challenge(2)]
 	};
 
@@ -35,6 +36,7 @@ function CreateCtrl(Challenges, AppSettings) {
 
 	};
 
+	// push a new challenge to data.challenges array
 	this.addChallenge = function () {
 		self.data.challenges.push(new Challenge(self.data.challenges.length+1));
 	}
