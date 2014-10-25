@@ -14,6 +14,7 @@ require('./directives/_index');
 angular.element(document).ready(function() {
 
   var requires = [
+    'angular-loading-bar',
     'hc.marked',
     'ngCookies',
     'ui.router',
