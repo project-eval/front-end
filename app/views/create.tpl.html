@@ -19,13 +19,23 @@
 		<hr>
 	</div>
 
-	<div class="panel panel-default">
+	<!-- each button represents a challenge within a breadstick -->
+	<div class="btn-group" ng-repeat="challenge in create.data.challenges">
+    <label  class="btn btn-success" ng-model="create.radioModel" btn-radio="{{$index}}" uncheckable>{{$index + 1}}</label>
+  </div>
+
+  <button class="btn btn-default" ng-click="create.addChallenge()">+</button>
+  <button class="btn btn-default" ng-click="create.submit(create.data)">save</button>
+
+  <br><br>
+
+	<div class="panel panel-default code-box">
 		<tabset justified="true">
 			<tab heading="markup">
-				<div ui-ace ng-model=create.data.source></div>
+				<div ui-ace ng-model="create.data.challenges[create.radioModel].description"></div>
 			</tab>
 			<tab heading="preview">
-				<div marked="create.data.source"></div>
+				<div marked="create.data.challenges[create.radioModel].description"></div>
 			</tab>
 			<tab heading="help">
 				What is the description field for?
@@ -34,7 +44,19 @@
 		</tabset>
 	</div>
 
-	<button class="btn btn-default" ng-click="create.submit(create.data)">submit</button>
+	<br><br>
+
+	<div class="panel panel-default code-box">
+		<tabset justified="true">
+			<tab heading="tests">
+				<div ui-ace ng-model="create.data.challenges[create.radioModel].test"></div>
+			</tab>
+			<tab heading="help">
+				What is the test field for?
+				Use this area to test this challenge.
+			</tab>
+		</tabset>
+	</div>
 
 	<hr>
 
@@ -49,5 +71,8 @@
 <style>
 	.ace_editor {
 		height: 200px;
+	}
+	.code-box {
+		height: 245px;
 	}
 </style>
