@@ -14,6 +14,7 @@ require('./directives/_index');
 angular.element(document).ready(function() {
 
   var requires = [
+    'hc.marked',
     'ngCookies',
     'ui.router',
     'ui.ace',

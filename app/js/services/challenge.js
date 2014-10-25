@@ -26,13 +26,13 @@ function Challenges($http, AppSettings) {
 		/**
 		 * get list of breadsticks
 		 * 
-		 * @param  {Hash} params
+		 * @param  {Hash} data
 		 */
-		query: function(params){
+		query: function(data){
 			return $http({
 				method: 'GET',
 				url: apiUrl + '/breadsticks',
-				params: params
+				params: data
 			})
 		},
 
