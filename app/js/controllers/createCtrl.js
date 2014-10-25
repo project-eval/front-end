@@ -6,7 +6,9 @@ var controllersModule = require('./_index');
  * create a new 'breadstick'
  * @controller
  */
-function CreateCtrl(Challenges) {
+function CreateCtrl(Challenges, AppSettings) {
+
+	this.devMode = AppSettings.devMode;
 
 	this.data = {
 		source: 'aa',

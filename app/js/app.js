@@ -17,6 +17,7 @@ angular.element(document).ready(function() {
     'hc.marked',
     'ngCookies',
     'ui.router',
+    'ui.bootstrap',
     'ui.ace',
     'templates',
     'app.controllers',

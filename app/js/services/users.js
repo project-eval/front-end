@@ -9,11 +9,10 @@ var apiUrl = require('../constants').apiUrl;
  */
 function Users($http) {
 	return {
+
 		/**
-		 * get user by username
-		 * @param  {string} username
-		 * @param  {function} success
-		 * @param  {function} error
+		 * get an users public information
+		 * @param {string} username
 		 */
 		getUser: function(username) {
 			return $http.get(apiUrl + '/user/' + username);
