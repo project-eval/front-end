@@ -7,7 +7,7 @@ var apiUrl = require('../constants.js').apiUrl;
 /**
  * @factory
  */
-function Auth($http, $cookieStore) {
+function Auth($http, $cookieStore, $q) {
 
   var routingConfig = require('../routingConfig.js'),
     accessLevels = routingConfig.accessLevels,
@@ -53,14 +53,18 @@ function Auth($http, $cookieStore) {
       });
     },
     logout: function() {
-      $http.post(apiUrl + '/logout').then(function() {
+      var self = this;
+      var defered = $q.defer();
+      return $http.post(apiUrl + '/logout').then(function() {
         changeUser({
           username: '',
           role: userRoles.public
         });
-        return;
+        defered.resolve(self.user);
+        return defered.promise;
       }, function(err) {
-      	return err;
+        defered.reject(err);
+      	return defered.promise;
       });
     },
     accessLevels: accessLevels,
