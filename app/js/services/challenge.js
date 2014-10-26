@@ -50,6 +50,19 @@ function Challenges($http, AppSettings) {
 		},
 
 		/**
+		 * update a breadstick
+		 * 
+		 * @param  {Hash} data
+		 */
+		update: function(data){
+			return $http({
+				method: 'PUT',
+				url: apiUrl + '/breadsticks',
+				data: data
+			})
+		},
+
+		/**
 		 * eval code
 		 *
 		 * @param  {Hash} data

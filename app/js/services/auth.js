@@ -7,17 +7,21 @@ var apiUrl = require('../constants.js').apiUrl;
 /**
  * @factory
  */
-function Auth($http, $cookieStore, $q) {
+function Auth($http, $q) {
 
   var routingConfig = require('../routingConfig.js'),
     accessLevels = routingConfig.accessLevels,
     userRoles = routingConfig.userRoles,
-    currentUser = $cookieStore.get('olive-garden-user') || {
+
+    currentUser = {
       username: '',
-      role: userRoles.public
+      role: 'public'
     };
 
-  $cookieStore.remove('user');
+  $http.get(apiUrl + '/me').then(function(res) {
+    currentUser.username = res.data.username || '';
+    currentUser.role = res.data.role || 'public';
+  });
 
   function changeUser(user) {
     angular.extend(currentUser, user);

@@ -31,7 +31,8 @@ function CreateCtrl($state, Challenges, AppSettings, Auth) {
 
 	// get breadsticks made my user
 	function getMyBreadsticks () {
-		Challenges.query({author: Auth.username}).then(onSuccess, onError);
+		console.log(Auth.user)
+		Challenges.query({author: Auth.user.username || 'o'}).then(onSuccess, onError);
 		function onSuccess (res) {
 			self.data = res.data;
 		}

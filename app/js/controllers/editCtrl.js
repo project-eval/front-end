@@ -8,7 +8,7 @@ var controllersModule = require('./_index');
  *
  * @controller
  */
-function EditCtrl(Challenges, AppSettings) {
+function EditCtrl($stateParams, Challenges, AppSettings) {
 	var self = this;
 
 	this.devMode = AppSettings.devMode;
@@ -22,17 +22,29 @@ function EditCtrl(Challenges, AppSettings) {
 		name: 'my breadstick',
 		tags: 'algo, strings, more, tags',
 		challenges: [new Challenge(1), new Challenge(2)]
-	};
+	}; 
 
-	// send off to server
-	this.submit = function (data) {
+	function getData () {
+		Challenges.getById($stateParams.id).then(onSuccess, onError);
+		function onSuccess (res) {
+			self.data = res.data.success;
+		}
+		function onError (err) {
+			throw err;
+		}
+	}
 
-		Challenges.submit(data).then(onSuccess, onError);
+	getData()
 
+	// save state
+	this.save = function (data) {
+		var payload = {
+			id : self.data
+		}
+		Challenges.update(data).then(onSuccess, onError);
 		function onSuccess (res) {
 			console.log(res.data);
 		}
-
 		function onError (err) {
 			throw err;
 		}
