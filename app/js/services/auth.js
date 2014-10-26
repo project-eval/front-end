@@ -12,7 +12,7 @@ function Auth($http, $cookieStore, $q) {
   var routingConfig = require('../routingConfig.js'),
     accessLevels = routingConfig.accessLevels,
     userRoles = routingConfig.userRoles,
-    currentUser = $cookieStore.get('user') || {
+    currentUser = $cookieStore.get('olive-garden-user') || {
       username: '',
       role: userRoles.public
     };

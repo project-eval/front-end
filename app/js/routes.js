@@ -7,6 +7,9 @@ var routingConfig = require('./routingConfig.js');
  */
 function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, AppSettings) {
 
+	// http://stackoverflow.com/questions/17064791/http-doesnt-send-cookie-in-requests
+	$httpProvider.defaults.withCredentials = true;
+
 	$locationProvider.html5Mode(true);
 
 	var access = routingConfig.accessLevels;
@@ -33,18 +36,8 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
 		.state('public.404', {
 			url: '/404/',
 			templateUrl: '404.tpl.html'
-		});
-
-	// Anonymous routes
-	$stateProvider
-		.state('anon', {
-			abstract: true,
-			template: "<ui-view/>",
-			data: {
-				access: access.anon
-			}
 		})
-		.state('anon.login', {
+		.state('public.login', {
 			url: '/login/',
 			templateUrl: 'login.tpl.html',
 			controller: 'LoginCtrl'

@@ -24,7 +24,6 @@
 		 */
 		accessLevels:{
 			'public' : '*',
-			'anon'   : ['public'],
 			'user'   : ['user', 'admin'],
 			'admin'  : ['admin']
 		}
