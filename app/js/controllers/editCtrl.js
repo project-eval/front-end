@@ -16,17 +16,12 @@ function EditCtrl($stateParams, Challenges, AppSettings) {
 	// challenge index we are currently showing
 	this.radioModel = 0;
 
-	this.data = {
-		language: 'javascript',
-		difficulty: '2',
-		name: 'my breadstick',
-		tags: 'algo, strings, more, tags',
-		challenges: [new Challenge(1), new Challenge(2)]
-	}; 
+	this.data = {}; 
 
 	function getData () {
 		Challenges.getById($stateParams.id).then(onSuccess, onError);
 		function onSuccess (res) {
+			console.log(res.data)
 			self.data = res.data.success;
 		}
 		function onError (err) {
@@ -37,11 +32,12 @@ function EditCtrl($stateParams, Challenges, AppSettings) {
 	getData()
 
 	// save state
-	this.save = function (data) {
+	this.save = function () {
 		var payload = {
-			id : self.data
-		}
-		Challenges.update(data).then(onSuccess, onError);
+			id : self.data._id,
+			update: self.data
+		};
+		Challenges.update(payload).then(onSuccess, onError);
 		function onSuccess (res) {
 			console.log(res.data);
 		}

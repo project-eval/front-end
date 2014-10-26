@@ -6,8 +6,9 @@
 	
 	<div class="row">
 		<div ng-repeat="breadstick in create.data" ng-click="create.edit(breadstick)" class="col-xs-6 col-sm-6 myBreadsticks">
-			<h4>{{breadstick._id}}</h4>
-			<span class="text-muted">Something else</span>
+			<h4>{{breadstick.name}}</h4>
+			<span class="text-muted">{{breadstick.createdOn}}</span>
+			<span>status: {{breadstick.status}}</span>
 		</div>
 	</div>
 </div>
