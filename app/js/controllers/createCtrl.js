@@ -3,53 +3,45 @@
 var controllersModule = require('./_index');
 
 /**
- * create a new 'breadstick'
- * a breadstick is composed of several 'challenges' which may contain tests and a descriptio
- *
  * @controller
+ *
+ * manages an users breadsticks (create/edit/delete)
  */
-function CreateCtrl(Challenges, AppSettings) {
+function CreateCtrl($state, Challenges, AppSettings, Auth) {
 	var self = this;
 
-	this.devMode = AppSettings.devMode;
+	self.data = [];
 
-	// challenge index we are currently showing
-	this.radioModel = 0;
+	// edit a breadstick
+	self.edit = function (breadstick) {
+		$state.go('user.edit', {id: breadstick._id});
+	}
 
-	this.data = {
-		language: 'javascript',
-		difficulty: '2',
-		name: 'my breadstick',
-		tags: 'algo, strings, more, tags',
-		challenges: [new Challenge(1), new Challenge(2)]
-	};
-
-	// send off to server
-	this.submit = function (data) {
-
-		Challenges.submit(data).then(onSuccess, onError);
-
+	// create a new breadstick
+	self.new = function () {
+		Challenges.submit(self.data).then(onSuccess, onError);
 		function onSuccess (res) {
 			console.log(res.data);
+			getMyBreadsticks()
 		}
-
 		function onError (err) {
 			throw err;
 		}
-
-	};
-
-	// push a new challenge to data.challenges array
-	this.addChallenge = function () {
-		self.data.challenges.push(new Challenge(self.data.challenges.length+1));
-		self.radioModel = self.data.challenges.length-1;
 	}
 
-	function Challenge(index) {
-		var index = index || 0;
-		this.description = '#write your description for challenge #' + index + ' here! \n take advantage of the markdown!';
-		this.test = 'write your tests for challenge #' + index + ' here!';
+	// get breadsticks made my user
+	function getMyBreadsticks () {
+		Challenges.query({author: Auth.username}).then(onSuccess, onError);
+		function onSuccess (res) {
+			self.data = res.data;
+		}
+		function onError (err) {
+			console.log(err);
+		}
 	}
-};
+
+	getMyBreadsticks()
+
+}
 
 controllersModule.controller('CreateCtrl', CreateCtrl);

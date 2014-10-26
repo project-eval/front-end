@@ -71,6 +71,11 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
 			templateUrl: 'breadstick.tpl.html',
 			controller: 'BreadstickCtrl as breadstick'
 		})
+		.state('user.edit', {
+			url: '/breadsticks/:id/edit/',
+			templateUrl: 'edit.tpl.html',
+			controller: 'EditCtrl as edit'
+		})
 
 	// Admin routes
 	$stateProvider

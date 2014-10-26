@@ -1,0 +1,88 @@
+<div>
+
+	<div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon">difficulty</span>
+			<input type="text" class="form-control" ng-model="edit.data.difficulty">
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon">language</span>
+			<input type="text" class="form-control" ng-model="edit.data.language">
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon">name</span>
+			<input type="text" class="form-control" ng-model="edit.data.name">
+		</div>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon">tags</span>
+			<input type="text" class="form-control" ng-model="edit.data.tags">
+		</div>
+
+		<hr>
+	</div>
+
+	<!-- each button represents a challenge within a breadstick -->
+	<div class="btn-group" >
+		<label  ng-repeat="challenge in edit.data.challenges" class="btn btn-success" ng-model="edit.radioModel" btn-radio="{{$index}}">
+			{{$index + 1}}
+		</label>
+	</div>
+
+	<button class="btn btn-default" ng-click="edit.addChallenge()">+</button>
+	<button class="btn btn-default" ng-click="edit.submit(edit.data)">save</button>
+
+	<br><br>
+	
+	<!-- markdown tabs -->
+	<div class="panel panel-default code-box">
+		<tabset justified="true">
+			<tab heading="markup">
+				<div ui-ace ng-model="edit.data.challenges[edit.radioModel].description"></div>
+			</tab>
+			<tab heading="preview">
+				<div marked="edit.data.challenges[edit.radioModel].description" class="container"></div>
+			</tab>
+			<tab heading="help">
+				What is the description field for?
+				Use this area to set the stage for the breadstick. Describe what the problem is and what the user needs to do to begin to solve it.
+			</tab>
+		</tabset>
+	</div>
+
+	<br>
+
+	<!-- test tabs -->
+	<div class="panel panel-default code-box">
+		<tabset justified="true">
+			<tab heading="tests">
+				<div ui-ace ng-model="edit.data.challenges[edit.radioModel].test"></div>
+			</tab>
+			<tab heading="help">
+				What is the test field for?
+				Use this area to test this challenge.
+			</tab>
+		</tabset>
+	</div>
+
+	<hr>
+
+	<div ng-show="edit.devMode">
+		DEV: {{edit.data}}
+	</div>
+
+</div>
+
+
+
+<style>
+	.ace_editor {
+		height: 200px;
+	}
+	.code-box {
+		height: 245px;
+	}
+</style>

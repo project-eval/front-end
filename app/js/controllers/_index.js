@@ -8,6 +8,7 @@ module.exports = angular.module('app.controllers', []);
 require('./challengeCtrl.js');
 require('./profileCtrl.js');
 require('./loginCtrl.js');
+require('./editCtrl.js');
 require('./createCtrl.js');
 require('./breadsticksCtrl.js');
 require('./breadstickCtrl.js');
