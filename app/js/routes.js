@@ -41,7 +41,12 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
 			url: '/login/',
 			templateUrl: 'login.tpl.html',
 			controller: 'LoginCtrl'
-		});
+		})
+		.state('public.root', {
+			url: '/',
+			templateUrl: 'root.tpl.html',
+			controller: 'RootCtrl'
+		})
 
 	// Regular user routes
 	$stateProvider
@@ -53,7 +58,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
 			}
 		})
 		.state('user.dashboard', {
-			url: '/',
+			url: '/dashboard/',
 			templateUrl: 'dashboard.tpl.html'
 		})
 		.state('user.create', {

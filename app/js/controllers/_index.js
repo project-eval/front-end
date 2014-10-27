@@ -13,3 +13,4 @@ require('./createCtrl.js');
 require('./breadsticksCtrl.js');
 require('./breadstickCtrl.js');
 require('./navCtrl.js');
+require('./rootCtrl.js');
