@@ -1,18 +1,15 @@
 
-<div class="login-form">
-	<h3>Login</h3>
-	<form novalidate id="login">
-		Username: <input type="text" ng-model="l.username" /><br />
-		Password: <input type="text" ng-model="l.password" /><br />
-		<button ng-click="login(l)">Login</button> <span>{{error}}</span>
-	</form>
-</div>
+<div class="container">
+	<h1>Login / Register</h1>
+	<form novalidate>
 
-<div class="register-form">
-	<h3>Register</h3>
-	<form novalidate id="register">
-		Username: <input type="text" ng-model="r.username" /><br />
-		Password: <input type="text" ng-model="r.password" /><br />
-		<button ng-click="register(r)">Register</button> <span>{{error}}</span>
+		Username: <input type="text" ng-model="data.username" class="form-control" /><br />
+		Password: <input type="text" ng-model="data.password" class="form-control" /><br />
+
+		<button ng-click="login(data)" class="btn btn-default btn-lg">Login</button> 
+		<button ng-click="register(data)" class="btn btn-default btn-lg">Register</button>
+
+		<span>{{error}}</span>
+
 	</form>
 </div>

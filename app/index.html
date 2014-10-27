@@ -30,18 +30,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Dashboard</a>
-            </li>
-            <li><a href="#">Settings</a>
-            </li>
-            <li><a href="#">Profile</a>
-            </li>
-            <li><a href="#">Help</a>
+            <li><a href="https://github.com/olive-garden">About</a>
             </li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </div>
@@ -56,25 +47,16 @@
               <a href="#" ng-show="isLoggedIn()" ng-click="logout()">Logout</a>
             </li>
             <li>
-              <a href="/challenge/">Challenge</a>
+              <a ng-show="isLoggedIn()" href="/dashboard/" >Dashboard</a>
             </li>
             <li>
-              <a href="/admin/">Admin</a>
+              <a ng-show="isLoggedIn()" href="/create/">Create</a>
             </li>
             <li>
-              <a href="/404/">404</a>
-            </li>
-            <li>
-              <a href="/user/test1234">Profile</a>
-            </li>
-            <li>
-              <a href="/create/">Create</a>
+              <a ng-show="isLoggedIn()" href="/admin/">Admin</a>
             </li>
             <li>
               <a href="/breadsticks/">Breadsticks</a>
-            </li>
-            <li>
-              <a href="/breadsticks/544a256f702c1e0c5d03b292">Breadstick</a>
             </li>
           </ul>
         </div>
