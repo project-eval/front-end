@@ -1,7 +1,7 @@
 'use strict';
 
 var AppSettings = {
-	devMode: true,
+	devMode: false,
 	appTitle: 'Olive Garden',
 	apiUrl: '/api'
 };

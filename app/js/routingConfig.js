@@ -22,11 +22,12 @@
 		 * specifies what user roles have access to that access level. E.g. users with user role
 		 * 'user' and 'admin' have access to the access level 'user'.
 		 */
-		accessLevels:{
-			'public' : '*',
-			'user'   : ['user', 'admin'],
-			'admin'  : ['admin']
-		}
+        accessLevels : {
+            'anon' : "*",
+            'public': ['public', 'user', 'admin'],
+            'user' : ['user', 'admin'],
+            'admin': ['admin']
+        }
 
 	};
 

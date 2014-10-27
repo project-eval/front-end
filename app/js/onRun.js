@@ -14,14 +14,13 @@ function onRun($rootScope, AppSettings, Auth, $state) {
 				$rootScope.error = "Seems like you tried accessing a route you don't have access to...";
 				event.preventDefault();
 
-				if (fromState.url === '^') {
-					if (Auth.isLoggedIn()) {
-						$state.go('user.dashboard');
-					} else {
-						$rootScope.error = null;
-						$state.go('anon.login');
-					}
+				if (Auth.isLoggedIn()) {
+					$state.go('user.dashboard');
+				} else {
+					$rootScope.error = null;
+					$state.go('public.login');
 				}
+
 			}
 		});
 	}
@@ -31,7 +30,7 @@ function onRun($rootScope, AppSettings, Auth, $state) {
 		$rootScope.pageTitle = '';
 
 		if ( toState.title ) {
-			$rootScope.pageTitle += toState.title;
+			$rootScope.pageTitle += toState.url;
 			$rootScope.pageTitle += ' \u2014 ';
 		}
 

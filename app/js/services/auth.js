@@ -2,21 +2,23 @@
 
 var servicesModule = require('./_index.js');
 
-var apiUrl = require('../constants.js').apiUrl;
-
 /**
  * @factory
  */
-function Auth($http, $q) {
+function Auth($http, $q, AppSettings) {
 
-  var routingConfig = require('../routingConfig.js'),
-    accessLevels = routingConfig.accessLevels,
-    userRoles = routingConfig.userRoles,
+  var apiUrl = AppSettings.apiUrl;
 
-    currentUser = {
-      username: '',
-      role: 'public'
-    };
+  var userRoles = {
+    'public': ['public'],
+    'user': ['public', 'user'],
+    'admin': ['public', 'user', 'admin']
+  }
+
+  var currentUser = {
+    username: '',
+    role: 'public'
+  };
 
   $http.get(apiUrl + '/me').then(function(res) {
     currentUser.username = res.data.username || '';
@@ -32,13 +34,14 @@ function Auth($http, $q) {
       if (role === undefined) {
         role = currentUser.role;
       }
-      return accessLevel.bitMask & role.bitMask;
+
+      return userRoles[role].indexOf(accessLevel) !== -1
     },
     isLoggedIn: function(user) {
       if (user === undefined) {
         user = currentUser;
       }
-      return user.role.title === userRoles.user.title || user.role.title === userRoles.admin.title;
+      return user.role !== 'public'
     },
     register: function(user) {
       return $http.post(apiUrl + '/register', user).then(function(res) {
@@ -62,7 +65,7 @@ function Auth($http, $q) {
       return $http.post(apiUrl + '/logout').then(function() {
         changeUser({
           username: '',
-          role: userRoles.public
+          role: 'public'
         });
         defered.resolve(self.user);
         return defered.promise;
@@ -71,7 +74,6 @@ function Auth($http, $q) {
       	return defered.promise;
       });
     },
-    accessLevels: accessLevels,
     userRoles: userRoles,
     user: currentUser
   };

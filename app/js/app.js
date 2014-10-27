@@ -2,6 +2,10 @@
 
 var angular = require('angular');
 
+// expose
+window.marked = require('marked');
+window.chai = require('chai');
+
 // angular modules
 require('angular-cookies');
 require('angular-ui-router');

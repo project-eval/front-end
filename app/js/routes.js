@@ -20,7 +20,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
 			abstract: true,
 			template: "<ui-view/>",
 			data: {
-				access: access.public
+				access: 'public'
 			}
 		})
 		.state('public.user', {
@@ -49,7 +49,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
 			abstract: true,
 			template: "<ui-view/>",
 			data: {
-				access: access.user
+				access: 'user'
 			}
 		})
 		.state('user.dashboard', {
@@ -75,7 +75,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
 			url: '/breadsticks/:id/edit/',
 			templateUrl: 'edit.tpl.html',
 			controller: 'EditCtrl as edit'
-		})
+		});
 
 	// Admin routes
 	$stateProvider
@@ -83,12 +83,12 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProv
 			abstract: true,
 			template: "<ui-view/>",
 			data: {
-				access: access.admin
+				access: 'admin'
 			}
 		})
 		.state('admin.admin', {
 			url: '/admin/',
-			templateUrl: 'admin.tpl.html',
+			templateUrl: 'admin.tpl.html'
 			// controller: 'AdminCtrl'
 		});
 

@@ -76,6 +76,8 @@
     "angular": "angular"
   },
   "dependencies": {
-    "angular-cookies": "^1.3.0"
+    "angular-cookies": "^1.3.0",
+    "chai": "^1.9.2",
+    "marked": "^0.3.2"
   }
 }
