@@ -1,24 +1,33 @@
 <div>
 
-	<h1>title: {{breadstick.data.info.title}}</h1>
-	<h1>breadstick id: {{breadstick.data.info._id}}</h1>
+	<h1>'{{breadstick.data.info.name}}'  PROGRESS BAR SHOULD BE HERE</h1>
 
-	<h2>breadstick description will be here</h2>
-
-	<marked>
-		#Markdown directive
-		*It works!*
-	</marked>
-
-	<div>
-		<div ui-ace ng-model="breadstick.data.source"></div>
-	</div>
-
-	<br><br>
-
-	<button ng-click="breadstick.onSubmit(breadstick.data.info._id, breadstick.data.source)"> 
-		submit for review 
+	<button ng-click="breadstick.onSubmit()" class="btn btn-default"> 
+		submit
 	</button>
+
+	<!-- markdown tabs -->
+	<div>
+		<div class="col-lg-6 ">
+			<tabset class="challenge-section">
+				<tab heading="description">
+					<div marked="breadstick.data.challenges[0].description">
+
+					</div>
+				</tab>
+				<tab heading="output">
+					<div marked="breadstick.data.challenges[breadstick.radioModel].description" class="container"></div>
+				</tab>
+				<tab heading="help">
+					todo
+				</tab>
+			</tabset>
+		</div>
+
+		<div class="col-lg-6">
+			<div ui-ace ng-model="breadstick.data.source" class="challenge-section"></div>
+		</div>
+	</div>
 
 	<br><br>
 
@@ -30,6 +39,10 @@
 
 <style>
 	.ace_editor {
-		height: 200px;
+		height: 590px;
+	}
+	.challenge-section{
+		height: 600px;
+		border: solid 1px #C4C4C4;
 	}
 </style>

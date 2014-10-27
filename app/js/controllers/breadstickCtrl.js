@@ -8,24 +8,31 @@ var controllersModule = require('./_index');
 function BreadstickCtrl($stateParams, Challenges) {
 	var self = this;
 
-	this.data = {};
+	self.data = {};
 
-	Challenges.getById($stateParams.id).then(onSuccess, onError);
+	self.onTest = function () {
 
-	function onSuccess (res) {
-		self.data.info = res.data.success;
 	}
 
-	function onError (err) {
-		throw err;
+	self.onSubmit = function () {
+		// Challenges.eval({
+		// 	id: breadstick_id,
+		// 	src: src
+		// });
 	}
 
-	this.onSubmit = function (breadstick_id, src) {
-		Challenges.eval({
-			id: breadstick_id,
-			src: src
-		});
+	function fetchChallenge () {
+		Challenges.getById($stateParams.id).then(onSuccess, onError);
+		function onSuccess (res) {
+			self.data = res.data.success;
+			console.log(res.data.success)
+		}
+		function onError (err) {
+			throw err;
+		}
 	}
+
+	fetchChallenge()
 };
 
 controllersModule.controller('BreadstickCtrl', BreadstickCtrl);

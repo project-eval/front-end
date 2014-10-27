@@ -5,9 +5,8 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>id#</th>
 					<th>language</th>
-					<th>title</th>
+					<th>name</th>
 					<th>author</th>
 					<th>difficulty</th>
 					<th>createdOn</th>
@@ -15,9 +14,8 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="breadstick in breadsticks.data" ng-click="breadsticks.onClick(breadstick)">
-					<td> {{breadstick._id}} </td>
 					<td> {{breadstick.language}} </td>
-					<td> {{breadstick.title}} </td>
+					<td> {{breadstick.name}} </td>
 					<td> <a href="/user/{{breadstick.author}}">{{breadstick.author}}</a> </td>
 					<td> {{breadstick.difficulty}} </td>
 					<td> {{breadstick.createdOn}} </td>
@@ -26,6 +24,7 @@
 		</table>
 	</div>
 </div>
+
 
 <style>
 
