@@ -1,39 +1,23 @@
 <div>
 
-	<h1>'{{breadstick.data.info.name}}'  PROGRESS BAR SHOULD BE HERE</h1>
+	<span class="row text-center">'{{breadstick.data.name}}'</span>
 
-	<button ng-click="breadstick.onSubmit()" class="btn btn-default"> 
-		submit
-	</button>
-
-	<!-- markdown tabs -->
-	<div>
+	<div class="row">
 		<div class="col-lg-6 ">
 			<tabset class="challenge-section">
 				<tab heading="description">
 					<div marked="breadstick.data.challenges[0].description">
-
 					</div>
 				</tab>
 				<tab heading="output">
-					<div marked="breadstick.data.challenges[breadstick.radioModel].description" class="container"></div>
-				</tab>
-				<tab heading="help">
-					todo
+					<div id="mocha"></div>
 				</tab>
 			</tabset>
 		</div>
-
 		<div class="col-lg-6">
-			<div ui-ace ng-model="breadstick.data.source" class="challenge-section"></div>
+			<div ui-ace ng-model="breadstick.code" class="challenge-section"></div>
 		</div>
 	</div>
-
-	<br><br>
-
-	<span>
-		{{breadstick.data}}
-	</span>
 
 </div>
 
@@ -44,5 +28,6 @@
 	.challenge-section{
 		height: 600px;
 		border: solid 1px #C4C4C4;
+		overflow-y: scroll;
 	}
 </style>
