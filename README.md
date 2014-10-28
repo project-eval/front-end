@@ -6,7 +6,7 @@ ProjectEval is an engaging new way to learn coding.  Complete a series of fun co
 
 Nervous? Don’t be. This should be fun!  We encourage you to share your solutions with the community, but if you’ve got cold feet, we let you hide your solutions.
 
-##Push to GitHub
+###Push to GitHub
 Happy with your work?  Push that sucker straight to your GitHub account with a single click. BOOM.
 
 ---
