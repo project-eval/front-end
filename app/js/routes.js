@@ -7,8 +7,13 @@ var routingConfig = require('./routingConfig.js');
  */
 function Routes($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, AppSettings) {
 
+	// cors yay!
 	// http://stackoverflow.com/questions/17064791/http-doesnt-send-cookie-in-requests
+	// http://metabroadcast.com/blog/moving-engage-to-angularjs-having-fun-with-cors
 	$httpProvider.defaults.withCredentials = true;
+	$httpProvider.defaults.useXDomain = true;
+	delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
 
 	$locationProvider.html5Mode(true);
 
