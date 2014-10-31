@@ -3,7 +3,7 @@
 var controllersModule = require('./_index');
 
 /**
- * @ngInject
+ * @controller
  */
 function ChallengeCtrl($scope) {
 

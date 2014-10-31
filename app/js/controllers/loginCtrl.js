@@ -2,7 +2,12 @@
 
 var controllersModule = require('./_index');
 
-function LoginCtrl($rootScope, $scope, $state, $stateParams, Auth) {
+/**
+ * @controller
+ * 
+ * login & register form handling
+ */
+function LoginCtrl($scope, $state, Auth) {
 
     $scope.error = '';
 
@@ -20,8 +25,7 @@ function LoginCtrl($rootScope, $scope, $state, $stateParams, Auth) {
     }
 
     function showError(err) {
-        $rootScope.error = 'Failed to login: ' + err;
-        $state.go('anon.login');
+        $scope.error = 'Failed to login: ' + err;
     }
 }
 

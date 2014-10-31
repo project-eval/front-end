@@ -2,17 +2,24 @@
 
 var controllersModule = require('./_index');
 
+/**
+ * @controller
+ */
 function ProfileCtrl($scope, $stateParams, Users) {
 
-	$scope.userInfo = {}
+	$scope.userInfo = {};
 
-	Users.getUser($stateParams.username)
-		.success(function(userInfo) {
-			$scope.userInfo = userInfo
-		})
-		.error(function(err) {
-			console.log(err)
-		})
+	function fetchUser(){
+		Users.getUser($stateParams.username).then(onSuccess, onError);
+		function onSuccess(userInfo) {
+			$scope.userInfo = userInfo;
+		}
+		function onError(err) {
+			console.log(err);
+		}
+	}
+
+	fetchUser();
 
 };
 

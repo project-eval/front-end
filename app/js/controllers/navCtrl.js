@@ -3,7 +3,7 @@
 var controllersModule = require('./_index');
 
 /**
- * @ngInject
+ * @controller
  */
 function NavCtrl($scope, $state, Auth) {
     $scope.isLoggedIn = Auth.isLoggedIn;
@@ -13,7 +13,7 @@ function NavCtrl($scope, $state, Auth) {
             $state.go('user.dashboard');
         })
         .then(null, function(err){
-            console.log("Something went wrong when logging out")
+            console.log("Something went wrong when logging out");
         })
     }
 };

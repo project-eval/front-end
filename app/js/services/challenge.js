@@ -12,9 +12,9 @@ function Challenges($http, AppSettings) {
 	return {
 
 		/**
-		 * get all data about a breadstick
+		 * get all data about a project
 		 * 
-		 * @param  {string} id
+		 * @param {string} id
 		 */
 		getById: function(id){
 			return $http({
@@ -24,9 +24,9 @@ function Challenges($http, AppSettings) {
 		},
 
 		/**
-		 * get list of breadsticks
+		 * get list of projects
 		 * 
-		 * @param  {Hash} data
+		 * @param {Hash} data
 		 */
 		query: function(data){
 			return $http({
@@ -37,9 +37,9 @@ function Challenges($http, AppSettings) {
 		},
 
 		/**
-		 * submit a new breadstick
+		 * submit a new project
 		 * 
-		 * @param  {Hash} data
+		 * @param {Hash} data
 		 */
 		submit: function(data){
 			return $http({
@@ -50,9 +50,9 @@ function Challenges($http, AppSettings) {
 		},
 
 		/**
-		 * update a breadstick
+		 * update a project
 		 * 
-		 * @param  {Hash} data
+		 * @param {Hash} data
 		 */
 		update: function(data){
 			return $http({
@@ -65,7 +65,7 @@ function Challenges($http, AppSettings) {
 		/**
 		 * eval code
 		 *
-		 * @param  {Hash} data
+		 * @param {Hash} data
 		 */
 		eval: function(data){
 			return $http({
